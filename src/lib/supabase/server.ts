@@ -30,10 +30,22 @@ export async function createClient() {
   });
 }
 
-// Dummy client for when Supabase is not configured
+// Chainable dummy client — every method returns a chainable object
+function chainable(data: any = []) {
+  const handler: ProxyHandler<any> = {
+    get(_target, prop) {
+      if (prop === 'then') return undefined; // Not a Promise
+      // Methods that should return data
+      if (prop === 'data') return data;
+      if (prop === 'error') return null;
+      // All other methods return a new chainable
+      return () => chainable(data);
+    },
+  };
+  return new Proxy(async () => ({ data, error: null }), handler);
+}
+
 function createDummyClient() {
-  const emptyArr = { data: [] as any[], error: null };
-  const nullData = { data: null as any, error: null };
   const configError = { error: new Error('Supabase not configured') };
 
   return {
@@ -47,26 +59,12 @@ function createDummyClient() {
       signInWithOtp: async () => configError,
       exchangeCodeForSession: async () => configError,
     },
-    from: () => ({
-      select: () => ({
-        eq: () => ({
-          order: () => emptyArr,
-          limit: () => emptyArr,
-          single: async () => nullData,
-        }),
-        order: () => emptyArr,
-        limit: () => emptyArr,
-        single: async () => nullData,
-      }),
-      insert: () => configError,
-      update: () => ({ eq: () => configError }),
-      delete: () => ({ eq: () => configError }),
-    }),
+    from: () => chainable([]),
     storage: {
       from: () => ({
         upload: async () => configError,
         getPublicUrl: () => ({ data: { publicUrl: '' } }),
       }),
     },
-  };
+  } as any;
 }

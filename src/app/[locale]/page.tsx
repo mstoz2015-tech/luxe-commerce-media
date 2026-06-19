@@ -7,14 +7,12 @@ export default async function HomePage() {
   const t = await getTranslations('home');
   const supabase = await createClient();
 
-  // Fetch latest posts
   const { data: posts } = await supabase
     .from('posts')
     .select('*, profiles(*)')
     .order('created_at', { ascending: false })
     .limit(20);
 
-  // Fetch featured merchants
   const { data: merchants } = await supabase
     .from('profiles')
     .select('*')
@@ -23,7 +21,6 @@ export default async function HomePage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      {/* Hero */}
       <section className="mb-16 text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-zinc-900 md:text-5xl">
           {t('title')}
@@ -33,7 +30,6 @@ export default async function HomePage() {
         </p>
       </section>
 
-      {/* Featured merchants */}
       {merchants && merchants.length > 0 && (
         <section className="mb-16">
           <h2 className="mb-6 text-2xl font-semibold text-zinc-800">
@@ -47,7 +43,6 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* Latest posts */}
       <section>
         <h2 className="mb-6 text-2xl font-semibold text-zinc-800">
           {t('latestPosts')}
