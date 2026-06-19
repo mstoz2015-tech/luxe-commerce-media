@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
 import { PostCard } from '@/components/merchant/PostCard';
 import { MerchantCard } from '@/components/merchant/MerchantCard';
 
 export default async function HomePage() {
-  const t = useTranslations('home');
+  const t = await getTranslations('home');
   const supabase = await createClient();
 
   // Fetch latest posts
