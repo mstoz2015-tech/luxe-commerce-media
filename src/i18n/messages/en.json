@@ -1,0 +1,76 @@
+{
+  "common": {
+    "siteName": "Luxe Commerce Media",
+    "siteDescription": "The Luxembourg merchant media",
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Create account",
+    "logout": "Logout",
+    "profile": "Profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noResults": "No results",
+    "viewAll": "View all"
+  },
+  "home": {
+    "title": "Discover businesses near you",
+    "subtitle": "Promotions, events, job offers — everything that makes Luxembourg commerce thrive",
+    "latestPosts": "Latest news",
+    "featuredMerchants": "Featured merchants",
+    "byCategory": "By category"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "loginTitle": "Sign in to your account",
+    "registerTitle": "Create your merchant account",
+    "noAccount": "Don't have an account yet?",
+    "hasAccount": "Already have an account?",
+    "createAccount": "Create an account",
+    "magicLinkSent": "Login link sent to your email!"
+  },
+  "merchant": {
+    "profile": "Shop profile",
+    "name": "Shop name",
+    "description": "Description",
+    "category": "Category",
+    "address": "Address",
+    "city": "City",
+    "phone": "Phone",
+    "website": "Website",
+    "logo": "Logo",
+    "createProfile": "Create your profile",
+    "editProfile": "Edit profile"
+  },
+  "posts": {
+    "title": "Posts",
+    "newPost": "New post",
+    "type": "Type",
+    "promotion": "Promotion",
+    "event": "Event",
+    "job": "Job offer",
+    "news": "News",
+    "content": "Content",
+    "publish": "Publish",
+    "publishedAt": "Published on",
+    "noPosts": "No posts yet"
+  },
+  "categories": {
+    "food": "Food",
+    "fashion": "Fashion",
+    "health": "Health & Wellness",
+    "home": "Home & Decor",
+    "services": "Services",
+    "leisure": "Leisure",
+    "tech": "Technology",
+    "other": "Other"
+  }
+}

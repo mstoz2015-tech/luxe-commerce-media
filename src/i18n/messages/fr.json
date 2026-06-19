@@ -1,0 +1,76 @@
+{
+  "common": {
+    "siteName": "Luxe Commerce Media",
+    "siteDescription": "Le média des commerçants luxembourgeois",
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "logout": "Déconnexion",
+    "profile": "Profil",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "noResults": "Aucun résultat",
+    "viewAll": "Voir tout"
+  },
+  "home": {
+    "title": "Découvrez les commerces près de chez vous",
+    "subtitle": "Promotions, événements, offres d'emploi — tout ce qui fait vivre le commerce luxembourgeois",
+    "latestPosts": "Dernières actualités",
+    "featuredMerchants": "Commerces à la une",
+    "byCategory": "Par catégorie"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "loginTitle": "Connectez-vous à votre compte",
+    "registerTitle": "Créez votre compte commerçant",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "createAccount": "Créer un compte",
+    "magicLinkSent": "Lien de connexion envoyé par email !"
+  },
+  "merchant": {
+    "profile": "Profil boutique",
+    "name": "Nom de la boutique",
+    "description": "Description",
+    "category": "Catégorie",
+    "address": "Adresse",
+    "city": "Ville",
+    "phone": "Téléphone",
+    "website": "Site web",
+    "logo": "Logo",
+    "createProfile": "Créer votre profil",
+    "editProfile": "Modifier le profil"
+  },
+  "posts": {
+    "title": "Publications",
+    "newPost": "Nouvelle publication",
+    "type": "Type",
+    "promotion": "Promotion",
+    "event": "Événement",
+    "job": "Offre d'emploi",
+    "news": "Actualité",
+    "content": "Contenu",
+    "publish": "Publier",
+    "publishedAt": "Publié le",
+    "noPosts": "Aucune publication pour le moment"
+  },
+  "categories": {
+    "food": "Alimentation",
+    "fashion": "Mode",
+    "health": "Santé & Bien-être",
+    "home": "Maison & Déco",
+    "services": "Services",
+    "leisure": "Loisirs",
+    "tech": "Technologie",
+    "other": "Autre"
+  }
+}

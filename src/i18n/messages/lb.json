@@ -1,0 +1,76 @@
+{
+  "common": {
+    "siteName": "Luxe Commerce Media",
+    "siteDescription": "De Lëtzebuerger Geschäftsmedien",
+    "home": "Haaptsäit",
+    "dashboard": "Dashboard",
+    "login": "Aloggen",
+    "register": "Kont erstellen",
+    "logout": "Ausloggen",
+    "profile": "Profil",
+    "save": "Späicheren",
+    "cancel": "Ofbriechen",
+    "delete": "Läschen",
+    "edit": "Änneren",
+    "create": "Erstellen",
+    "search": "Sichen",
+    "loading": "Lueden...",
+    "error": "Et ass e Feeler geschitt",
+    "noResults": "Keng Resultater",
+    "viewAll": "Alles weisen"
+  },
+  "home": {
+    "title": "Entdeckt Geschäfter an Ärer Géigend",
+    "subtitle": "Promotiounen, Evenementer, Aarbechtsplazen — alles wat de Lëtzebuerger Handel lieweg mécht",
+    "latestPosts": "Neist Aktualitéiten",
+    "featuredMerchants": "Ausgewielte Geschäfter",
+    "byCategory": "No Kategorie"
+  },
+  "auth": {
+    "email": "E-Mail",
+    "password": "Passwuert",
+    "confirmPassword": "Passwuert bestätegen",
+    "loginTitle": "Aloggen an Äre Kont",
+    "registerTitle": "Äre Geschäftskont erstellen",
+    "noAccount": "Nach kee Kont?",
+    "hasAccount": "Schonn e Kont?",
+    "createAccount": "E Kont erstellen",
+    "magicLinkSent": "Login-Link per E-Mail geschéckt!"
+  },
+  "merchant": {
+    "profile": "Geschäftsprofil",
+    "name": "Numm vum Geschäft",
+    "description": "Beschreiwung",
+    "category": "Kategorie",
+    "address": "Adress",
+    "city": "Stad",
+    "phone": "Telefon",
+    "website": "Websäit",
+    "logo": "Logo",
+    "createProfile": "Äre Profil erstellen",
+    "editProfile": "Profil änneren"
+  },
+  "posts": {
+    "title": "Publikatiounen",
+    "newPost": "Nei Publikatioun",
+    "type": "Typ",
+    "promotion": "Promotioun",
+    "event": "Evenement",
+    "job": "Aarbechtsplaz",
+    "news": "Aktualitéit",
+    "content": "Inhalt",
+    "publish": "Publizéieren",
+    "publishedAt": "Publizéiert den",
+    "noPosts": "Keng Publikatioune bis elo"
+  },
+  "categories": {
+    "food": "Liewensmëttel",
+    "fashion": "Moud",
+    "health": "Gesondheet & Wellness",
+    "home": "Haus & Dekor",
+    "services": "Servicer",
+    "leisure": "Fräizäit",
+    "tech": "Technologie",
+    "other": "Aner"
+  }
+}
