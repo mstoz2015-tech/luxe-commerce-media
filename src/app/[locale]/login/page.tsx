@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 
@@ -12,10 +12,9 @@ export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSendCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -23,33 +22,17 @@ export default function LoginPage() {
     const supabase = createClient();
     const { error: authError } = await supabase.auth.signInWithOtp({
       email,
-      options: {
-        emailRedirectTo: `${window.location.origin}/fr/auth/callback`,
-      },
+      options: { shouldCreateUser: false },
     });
 
     if (authError) {
       setError(authError.message);
     } else {
-      setSent(true);
+      router.push(`../auth/verify?email=${encodeURIComponent(email)}`);
     }
 
     setLoading(false);
   };
-
-  if (sent) {
-    return (
-      <div className="mx-auto max-w-md px-4 py-24 text-center">
-        <div className="mb-4 text-4xl">📧</div>
-        <h1 className="mb-3 text-2xl font-bold text-zinc-900">
-          {t('magicLinkSent')}
-        </h1>
-        <p className="text-zinc-500">
-          Vérifiez votre boîte email <strong>{email}</strong> et cliquez sur le lien pour vous connecter.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <div className="mx-auto max-w-md px-4 py-24">
@@ -63,7 +46,7 @@ export default function LoginPage() {
         </Link>
       </p>
 
-      <form onSubmit={handleLogin} className="space-y-4">
+      <form onSubmit={handleSendCode} className="space-y-4">
         <div>
           <label className="mb-1 block text-sm font-medium text-zinc-700">
             {t('email')}
@@ -89,7 +72,7 @@ export default function LoginPage() {
           disabled={loading}
           className="w-full rounded-lg bg-zinc-900 py-2.5 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50 transition-colors"
         >
-          {loading ? common('loading') : t('loginTitle')}
+          {loading ? common('loading') : 'Recevoir un code'}
         </button>
       </form>
     </div>

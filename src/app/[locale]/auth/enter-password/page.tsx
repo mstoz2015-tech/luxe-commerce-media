@@ -1,63 +1,59 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
-export default function RegisterPage() {
-  const t = useTranslations('auth');
-  const common = useTranslations('common');
+export default function EnterPasswordPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email') || '';
+
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSendCode = async (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
     const supabase = createClient();
-    const { error: authError } = await supabase.auth.signInWithOtp({
+    const { error: signInError } = await supabase.auth.signInWithPassword({
       email,
-      options: { shouldCreateUser: true },
+      password,
     });
 
-    if (authError) {
-      setError(authError.message);
-    } else {
-      router.push(`../auth/verify?email=${encodeURIComponent(email)}&mode=register`);
+    if (signInError) {
+      setError(signInError.message);
+      setLoading(false);
+      return;
     }
 
-    setLoading(false);
+    router.push('/fr/dashboard');
+    router.refresh();
   };
 
   return (
     <div className="mx-auto max-w-md px-4 py-24">
       <h1 className="mb-2 text-2xl font-bold text-zinc-900">
-        {t('registerTitle')}
+        Entrez votre mot de passe
       </h1>
       <p className="mb-8 text-zinc-500">
-        {t('hasAccount')}{' '}
-        <Link href="../login" className="font-medium text-zinc-900 underline">
-          {t('loginTitle')}
-        </Link>
+        Bon retour <strong>{email}</strong> ! Entrez votre mot de passe pour continuer.
       </p>
 
-      <form onSubmit={handleSendCode} className="space-y-4">
+      <form onSubmit={handleSignIn} className="space-y-4">
         <div>
           <label className="mb-1 block text-sm font-medium text-zinc-700">
-            {t('email')}
+            Mot de passe
           </label>
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
             className="w-full rounded-lg border border-zinc-300 px-4 py-2.5 text-sm focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900"
-            placeholder="contact@votreboutique.lu"
           />
         </div>
 
@@ -72,7 +68,7 @@ export default function RegisterPage() {
           disabled={loading}
           className="w-full rounded-lg bg-zinc-900 py-2.5 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50 transition-colors"
         >
-          {loading ? common('loading') : 'Recevoir un code'}
+          {loading ? 'Connexion...' : 'Se connecter'}
         </button>
       </form>
     </div>
