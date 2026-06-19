@@ -71,7 +71,7 @@ export default async function DashboardPage({
       {/* Posts list */}
       {posts && posts.length > 0 ? (
         <div className="space-y-4">
-          {posts.map((post) => (
+          {posts.map((post: any) => (
             <div
               key={post.id}
               className="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"

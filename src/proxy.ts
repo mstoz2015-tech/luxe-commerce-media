@@ -5,8 +5,8 @@ import { routing } from './i18n/routing';
 
 const intlMiddleware = createMiddleware(routing);
 
-export async function middleware(request: NextRequest) {
-  // 1. Refresh Supabase session
+export async function proxy(request: NextRequest) {
+  // 1. Refresh Supabase session (safe — skips if not configured)
   const supabaseResponse = await updateSession(request);
 
   // 2. Handle i18n
@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and static files
-    '/((?!_next|api|static|.*\\..*|favicon.ico).*)',
+    // Skip Next.js internals and static files, plus Next.js assets
+    '/((?!_next|api|static|favicon.ico|.*\\.svg|.*\\.png|.*\\.jpg|.*\\.ico).*)',
   ],
 };

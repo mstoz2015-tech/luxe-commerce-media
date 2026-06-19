@@ -40,7 +40,7 @@ export default async function HomePage() {
             {t('featuredMerchants')}
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {merchants.map((merchant) => (
+            {merchants.map((merchant: any) => (
               <MerchantCard key={merchant.id} merchant={merchant} />
             ))}
           </div>
@@ -54,7 +54,7 @@ export default async function HomePage() {
         </h2>
         {posts && posts.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <PostCard key={post.id} post={post} />
             ))}
           </div>
